@@ -1,0 +1,38 @@
+This service take two dates as input and gives number of days in between them.
+Start a web service by running ServiceStarter.java as a java application.
+
+-------------------------------------------------------------------------------------------------------------------------
+Input could be using URL parameters or input file. Format of input string should be: "DD MM YYYY, DD MM YYYY"
+
+Using URL:
+http://localhost:8080/getDays?input=01 01 1999, 06 12 2000
+
+Using input file(Input should be present in InputDates which is already attached):
+http://localhost:8080/getDaysUsingFile
+
+Output:
+DD MM YYYY, DD MM YYYY, number of days.
+Eg: 01 01 1999, 06 12 2000, 705
+-------------------------------------------------------------------------------------------------------------------------
+
+***************************
+Sample Inputs and Outputs:
+***************************
+
+Input: http://localhost:8080/getDays?input=01 01 1900, 15 05 1901
+Output: 01 01 1900, 15 05 1901, 499
+
+Input: http://localhost:8080/getDays?input=01 01 2000, 15 05 2000
+Output: 01 01 2000, 15 05 2000, 135
+
+Input: http://localhost:8080/getDays?input=01 01 1900, 15 05 2011
+Output: Incorrect dates mentioned. Error reason: Dates should be in format: "DD MM YYYY, DD MM YYYY" and in between 01 01 1900 and 31 12 2010
+
+Input: http://localhost:8080/getDays?input=01 01 1899, 06 12 2000
+Output: Incorrect dates mentioned. Error reason: Dates should be in format: "DD MM YYYY, DD MM YYYY" and in between 01 01 1900 and 31 12 2010
+
+Input: http://localhost:8080/getDays?input=01 01 2001, 06 12 2000
+Output: Incorrect dates mentioned. Error reason: Latter year can't be less than first one
+
+Input: http://localhost:8080/getDays?input=01 13 1990, 06 12 2000
+Incorrect dates mentioned. Error reason: Dates should be in format: "DD MM YYYY, DD MM YYYY" and in between 01 01 1900 and 31 12 2010
